@@ -2,4 +2,32 @@ NAME: Jesse Joseph
 EMAIL: jjoseph@hmc.edu
 ID: 040161840
 
+Submission info:
+This assignment was due: 1/30/2017. I used a slip day and turned it in 1/31/2017.
 
+Files included:
+lab1.h
+  - header file
+  - states all the includes needed for the lab1a program
+  - declares all the functions used in lab1.c 
+lab1.c
+  - implementation file for this submission.
+  - default make target compiles this and links the pthread library
+README
+  - This file - an overview of the submission
+Makefile
+  - Makefile has three targets: lab1 (default), clean, and dist.
+    - lab1, the default target, builds the executable (lab1a)
+    - clean removes generated files: the lab1a executable and the tarball.
+    - dist builds the tarball
+
+About this submission:
+This submission meets all the specifications listed in the assignment (to the best of my understanding) except for the following:
+  - I believe there is a bug with my CR LF processing.
+    - Without the --shell option, it works correctly.
+    - With the --shell option, my program does not reset the cursor to the beginning of the line WHEN PROGRAMS RUN IN THE SHELL PRINT TO STDERR.
+    - In my function "writeback(char *buff, int nBytes)" I try to explicitly recieve either CR or LF and write CRLF.
+    - When the output of a shell program prints, the CRLF seems to work correctly - it's only in runtime errors that this bug appears.
+    - TRY ISSUING A NONEXISTANT COMMAND IN --shell MODE TO SEE WHAT I'M TALKING ABOUT
+
+  - I don't think my handling of ctrl-C is correct. When I send the SIGINT to the shell, the shell quits, which I don't think it should.
