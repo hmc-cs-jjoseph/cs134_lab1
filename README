@@ -31,3 +31,8 @@ This submission meets all the specifications listed in the assignment (to the be
     - TRY ISSUING A NONEXISTANT COMMAND IN --shell MODE TO SEE WHAT I'M TALKING ABOUT
 
   - I don't think my handling of ctrl-C is correct. When I send the SIGINT to the shell, the shell quits, which I don't think it should.
+Sources, other than suggested man pages:
+  - https://jineshkj.wordpress.com/2006/12/22/how-to-capture-stdin-stdout-and-stderr-of-child-program/
+    - This helped me with the inter-process communication.
+  - http://man7.org/linux/man-pages/man3/pthread_join.3.html
+    - The man page for pthread_join

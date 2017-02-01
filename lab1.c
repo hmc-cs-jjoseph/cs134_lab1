@@ -16,6 +16,7 @@
  * will write to is pipes[0], and the pipe that the parent
  * will write to and the child will read from will be
  * pipes[1].
+ * source: https://jineshkj.wordpress.com/2006/12/22/how-to-capture-stdin-stdout-and-stderr-of-child-program/
  */
 #define PARENT_READ_PIPE_ 0
 #define PARENT_WRITE_PIPE_ 1
