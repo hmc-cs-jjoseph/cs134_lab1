@@ -16,8 +16,7 @@
  * Send the EOF character with ctrl-D.
  *
  * Sending ctrl-c sends a SIGINT to the child shell, which forces
- * the child shell to exit. I don't believe this is what was 
- * intended by the assignment
+ * the child shell to exit.
  */
 
 #include <sys/ioctl.h>
@@ -55,14 +54,16 @@ void continuousNonCanonicalRead();
  */
 void setTerminalToNonCanonicalInput();
 
-/* \brief Similar to writeBack, but sends to output specified by file descriptor fd. Also has specific handling of special characters.
+/* \brief Similar to writeBack, but sends to shell. Also has specific handling of special characters.
  */
-int sendToShell(char *buff, int nBytes, int fd);
+int sendToShell(char *buff, int nBytes);
 
-/* \brief Executes in a pthread; takes keyboard input and sends it to output specified by file descriptor fd.
+/* \brief Executes in a pthread; takes keyboard input and sends it to shell 
  */
-void *readAndWritetoShell(void *fd);
+void *readAndWritetoShell();
 
-/* \brief Executes in a pthread; reads input source specified by fd and writes it to the terminal
+/* \brief Executes in a pthread; reads input from shell and writes it to the terminal
  */
-void *readFromShell(void *fd);
+void *readFromShell();
+
+void collectShellStatus();

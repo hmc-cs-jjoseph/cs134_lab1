@@ -2,8 +2,6 @@ NAME: Jesse Joseph
 EMAIL: jjoseph@hmc.edu
 ID: 040161840
 
-Submission info:
-This assignment was due: 1/30/2017. I used a slip day and turned it in 1/31/2017.
 
 Files included:
 lab1.h
@@ -22,15 +20,12 @@ Makefile
     - dist builds the tarball
 
 About this submission:
-This submission meets all the specifications listed in the assignment (to the best of my understanding) except for the following:
-  - I believe there is a bug with my CR LF processing.
-    - Without the --shell option, it works correctly.
-    - With the --shell option, my program does not reset the cursor to the beginning of the line WHEN PROGRAMS RUN IN THE SHELL PRINT TO STDERR.
-    - In my function "writeback(char *buff, int nBytes)" I try to explicitly recieve either CR or LF and write CRLF.
-    - When the output of a shell program prints, the CRLF seems to work correctly - it's only in runtime errors that this bug appears.
-    - TRY ISSUING A NONEXISTANT COMMAND IN --shell MODE TO SEE WHAT I'M TALKING ABOUT
+This submission meets all the specifications listed in the assignment (to the best of my understanding).
+	- Regarding exit status:
+		- Although I believe I wrote the code to make EOF from shell or SIGPIPE exit 2, my program always seems to get a SIGCHLD first.
+		- Normal shell exit also sends a SIGCHLD, so my program pretty much always exits 0.
+		- I also tried killing the shell from a separate bash session, but tht's the same as sending a SIGINT through my program
 
-  - I don't think my handling of ctrl-C is correct. When I send the SIGINT to the shell, the shell quits, which I don't think it should.
 Sources, other than suggested man pages:
   - https://jineshkj.wordpress.com/2006/12/22/how-to-capture-stdin-stdout-and-stderr-of-child-program/
     - This helped me with the inter-process communication.
